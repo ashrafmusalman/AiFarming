@@ -1,0 +1,76 @@
+package com.ashraf.farming.adapter
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.ashraf.farming.datamodel.Product
+import com.shahbaz.farming.databinding.YourProductItemBinding
+
+class YourProductAdaapter() : RecyclerView.Adapter<YourProductAdaapter.yourProductViewholder>() {
+
+    class yourProductViewholder(val binding: YourProductItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(productItem: Product?) {
+            productItem?.let {
+                binding.apply {
+                    Glide.with(itemView).load(productItem.productImage).into(productImage)
+                    productTitle.text = productItem.title
+                    productPrice.text = "Rs:${productItem.price}"
+                    productQuantity.text = "Qty:${productItem.quantity}"
+                }
+            }
+        }
+
+    }
+
+
+    private val diffutil = object : DiffUtil.ItemCallback<Product>() {
+        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem.productId == newItem.productId
+        }
+
+        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+
+    val differ = AsyncListDiffer(this, diffutil)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): yourProductViewholder {
+        return yourProductViewholder(
+            YourProductItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
+    }
+
+    override fun getItemCount(): Int {
+        return differ.currentList.size
+    }
+
+    override fun onBindViewHolder(holder: yourProductViewholder, position: Int) {
+        val productItem = differ.currentList[position]
+        holder.bind(productItem)
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(productItem)
+        }
+
+        holder.binding.deleteButton.setOnClickListener {
+            onDeleteClick?.invoke(productItem.productId!!)
+        }
+
+        holder.binding.updateButton.setOnClickListener {
+            onUpdateClick?.invoke(productItem)
+        }
+    }
+
+    var onClick: ((Product) -> Unit)? = null
+    var onDeleteClick: ((String) -> Unit)? = null
+    var onUpdateClick :((Product) -> Unit)? = null
+}

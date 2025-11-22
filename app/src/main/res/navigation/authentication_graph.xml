@@ -9,12 +9,12 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.shahbaz.farming.authentication.LoginFragment"
+        android:name="com.ashraf.farming.authentication.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.shahbaz.farming.authentication.SignUpFragment"
+        android:name="com.ashraf.farming.authentication.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 </navigation>

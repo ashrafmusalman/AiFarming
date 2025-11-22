@@ -1,0 +1,133 @@
+package com.ashraf.farming.mainscreen
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.ashraf.farming.adapter.YourProductAdaapter
+import com.ashraf.farming.util.Resources
+import com.ashraf.farming.util.hideBottomNavigationBar
+import com.ashraf.farming.viewmodel.AddProductViewmodel
+import com.shahbaz.farming.databinding.FragmentYourProductBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+
+@AndroidEntryPoint
+class YourProductFragment : Fragment() {
+
+    private lateinit var binding: FragmentYourProductBinding
+    private val addProductViewmodel by viewModels<AddProductViewmodel>()
+    private val yourProductAdaapter by lazy {
+        YourProductAdaapter()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentYourProductBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setUpProductRecyclerView()
+        addProductViewmodel.fetchYourProduct()
+        observeYourProduct()
+
+        yourProductAdaapter.onClick = { product ->
+            val action =
+                YourProductFragmentDirections.actionYourProductFragmentToProductDetailFragment(
+                    product,"yourProduct"
+                )
+
+            findNavController().navigate(action)
+        }
+
+        yourProductAdaapter.onDeleteClick = { productId ->
+            binding.progressbar.visibility = View.VISIBLE
+            addProductViewmodel.deleteProduct(productId)
+        }
+
+        yourProductAdaapter.onUpdateClick = {
+            val action =
+                YourProductFragmentDirections.actionYourProductFragmentToAddProductFragment(it)
+            findNavController().navigate(action)
+        }
+
+        observeProductdelete()
+
+    }
+
+    private fun observeProductdelete() {
+        lifecycleScope.launch {
+            addProductViewmodel.deleteProductStatus.collect {
+                when (it) {
+                    is Resources.Error -> {
+                        binding.progressbar.visibility = View.GONE
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    is Resources.Loading -> {}
+                    is Resources.Success -> {
+                        addProductViewmodel.fetchYourProduct()
+                        binding.progressbar.visibility = View.GONE
+                        Toast.makeText(requireContext(), it.data.toString(), Toast.LENGTH_SHORT)
+                            .show()
+
+                    }
+
+                    is Resources.Unspecified -> {}
+                }
+            }
+        }
+    }
+
+    private fun observeYourProduct() {
+        lifecycleScope.launch {
+            addProductViewmodel.yourProductStatus.collect {
+                when (it) {
+                    is Resources.Error -> {
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    is Resources.Loading -> {}
+                    is Resources.Success -> {
+                        it.data?.let { product ->
+                            yourProductAdaapter.differ.submitList(product)
+                        }
+                    }
+
+                    is Resources.Unspecified -> {}
+                }
+            }
+        }
+    }
+
+    private fun setUpProductRecyclerView() {
+        binding.yourProductRecyclerview.apply {
+            adapter = yourProductAdaapter
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            setHasFixedSize(true)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        hideBottomNavigationBar()
+    }
+}

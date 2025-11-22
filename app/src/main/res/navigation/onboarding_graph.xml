@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/onBaordingFragment"
-        android:name="com.shahbaz.farming.oboarding.OnBaordingFragment"
+        android:name="com.ashraf.farming.oboarding.OnBaordingFragment"
         android:label="fragment_on_baording"
         tools:layout="@layout/fragment_on_baording" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstScreen"
-        android:name="com.shahbaz.farming.oboarding.onboardingscreen.FirstScreen"
+        android:name="com.ashraf.farming.oboarding.onboardingscreen.FirstScreen"
         android:label="fragment_first_screen"
         tools:layout="@layout/fragment_first_screen" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondScreen"
-        android:name="com.shahbaz.farming.oboarding.onboardingscreen.SecondScreen"
+        android:name="com.ashraf.farming.oboarding.onboardingscreen.SecondScreen"
         android:label="fragment_second_screen"
         tools:layout="@layout/fragment_second_screen" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdScreen"
-        android:name="com.shahbaz.farming.oboarding.onboardingscreen.ThirdScreen"
+        android:name="com.ashraf.farming.oboarding.onboardingscreen.ThirdScreen"
         android:label="fragment_third_screen"
         tools:layout="@layout/fragment_third_screen" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/fourthScreen"
-        android:name="com.shahbaz.farming.oboarding.onboardingscreen.FourthScreen"
+        android:name="com.ashraf.farming.oboarding.onboardingscreen.FourthScreen"
         android:label="fragment_fourth_screen"
         tools:layout="@layout/fragment_fourth_screen" >
         <action
@@ -67,7 +67,7 @@
 
         <fragment
             android:id="@+id/loginFragment"
-            android:name="com.shahbaz.farming.authentication.LoginFragment"
+            android:name="com.ashraf.farming.authentication.LoginFragment"
             android:label="fragment_login"
             tools:layout="@layout/fragment_login" >
             <action
@@ -76,7 +76,7 @@
         </fragment>
         <fragment
             android:id="@+id/signUpFragment"
-            android:name="com.shahbaz.farming.authentication.SignUpFragment"
+            android:name="com.ashraf.farming.authentication.SignUpFragment"
             android:label="fragment_sign_up"
             tools:layout="@layout/fragment_sign_up" >
             <action

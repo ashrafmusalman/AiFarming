@@ -1,0 +1,32 @@
+package com.ashraf.farming.viewmodel
+
+import androidx.lifecycle.ViewModel
+import com.ashraf.farming.repo.HomeFragmentRepositiory
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class HomeFragmentViewmodel @Inject constructor(
+    private val homeFragmentRepositiory: HomeFragmentRepositiory
+):ViewModel() {
+
+    val userDetailState = homeFragmentRepositiory.userDetailsStatus
+    val updateProfileStatus = homeFragmentRepositiory.updateProfile
+    val updateCoverPictureStatus = homeFragmentRepositiory.updateCoverPicture
+
+    fun getCurrentUserDetails(){
+        homeFragmentRepositiory.getCurrentUserDetail()
+    }
+
+    fun signOut(){
+        homeFragmentRepositiory.signOut()
+    }
+
+    fun updateProfile(imageurl:String){
+        homeFragmentRepositiory.updateProfilePicture(imageurl)
+    }
+
+    fun uploadCoverPhoto(coverImageUrl:String){
+        homeFragmentRepositiory.uploadCoverPhoto(coverImageUrl)
+    }
+}

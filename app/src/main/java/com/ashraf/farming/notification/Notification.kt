@@ -1,0 +1,6 @@
+package com.ashraf.farming.notification
+
+data class Notification(
+    val body: String,
+    val title: String
+)

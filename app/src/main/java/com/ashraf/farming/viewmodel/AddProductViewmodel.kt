@@ -1,0 +1,79 @@
+package com.ashraf.farming.viewmodel
+
+import android.net.Uri
+import androidx.lifecycle.ViewModel
+import com.ashraf.farming.datamodel.Product
+import com.ashraf.farming.repo.AddProductRepo
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+
+@HiltViewModel
+class AddProductViewmodel @Inject constructor(
+    private val addProductRepo: AddProductRepo
+) : ViewModel() {
+
+    val productStatus = addProductRepo.productStatus
+
+    val yourProductStatus = addProductRepo.fetchYourProductStatus
+
+    val fetchOtherProductStatus = addProductRepo.fetchOthersListedProductStatus
+
+    val deleteProductStatus = addProductRepo.deleteProduct
+
+    val updateProductStatus = addProductRepo.updateProuct
+
+    fun addProduct(
+        productImage: Uri,
+        productTitle: String,
+        productQuantity: String,
+        productPrice: String,
+        sellerPhoneNumber: String,
+        productStatus: String,
+        productCategory: String,
+        productDescription: String
+    ) {
+        addProductRepo.addProduct(
+            productImage,
+            productTitle,
+            productQuantity,
+            productPrice,
+            sellerPhoneNumber,
+            productStatus,
+            productCategory,
+            productDescription
+        )
+    }
+
+
+
+    fun fetchYourProduct() {
+        addProductRepo.fetchYourProduct()
+    }
+
+
+    fun fetchOtherProduct() {
+        addProductRepo.fetchOthersListedProduct()
+    }
+
+    fun resetProductStatus() {
+        addProductRepo.resetProductStatus()
+    }
+
+    fun deleteProduct(productId: String) {
+        addProductRepo.deleteProduct(productId)
+    }
+
+    fun updateProductwithImage(productID: String, product: Product) {
+        addProductRepo.updateProductWithImage(productID, product)
+    }
+
+    fun updateProduct(productID: String, product: Product) {
+        addProductRepo.updateProductWithOutImageChange(productID, product)
+
+    }
+
+    fun resetUpdateState(){
+        addProductRepo.resetUpdateStatus()
+    }
+}
