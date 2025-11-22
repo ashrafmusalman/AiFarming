@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="20dp"
+    android:background="@color/bg_light">
+
+        <LinearLayout
+            android:id="@+id/login_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp">
+
+                <!-- LOGO -->
+                <ImageView
+                    android:id="@+id/imageViewLogo"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginTop="36dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo" />
+
+                <!-- APP NAME -->
+                <TextView
+                    android:id="@+id/textAppName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/farming_app1"
+                    android:textSize="30sp"
+                    android:textColor="@color/brand_green"
+                    android:fontFamily="@font/berkshire_swash"
+                    android:importantForAccessibility="yes" />
+
+                <!-- SUBTITLE -->
+                <TextView
+                    android:id="@+id/textSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/get_your_farming_product_here1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brand_green_dark"
+                    android:fontFamily="@font/architects_daughter" />
+
+                <!-- TITLE: LOGIN -->
+                <TextView
+                    android:id="@+id/textLoginTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:text="@string/login_to_your_account"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brand_green" />
+
+                <!-- EMAIL / PHONE FIELD -->
+                <EditText
+                    android:id="@+id/Emailorphone"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/edittext_modern"
+                    android:backgroundTint="@null"
+                    android:hint="@string/enter_email1"
+
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:importantForAutofill="yes"
+                    android:autofillHints="emailAddress" />
+
+                <!-- PASSWORD FIELD -->
+                <EditText
+                    android:id="@+id/Loginpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/edittext_modern"
+                    android:backgroundTint="@null"
+                    android:hint="@string/enter_the_password"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:importantForAutofill="yes"
+                    android:autofillHints="password" />
+
+                <!-- OR TEXT -->
+                <TextView
+                    android:id="@+id/textOr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:text="@string/or"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brand_green"
+                    android:fontFamily="@font/berkshire_swash" />
+
+                <!-- CONTINUE WITH -->
+                <TextView
+                    android:id="@+id/textContinueWith"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/continue_with"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brand_green"
+                    android:fontFamily="@font/berkshire_swash" />
+
+                <!-- LOGIN BUTTON -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/buttonshape0"
+                    android:textAllCaps="false"
+                    android:text="@string/login"
+                    android:textSize="18sp"
+                    android:textColor="@color/green"
+                    android:stateListAnimator="@null"
+                   />
+
+                <!-- SIGNUP TEXT -->
+                <TextView
+                    android:id="@+id/donthaveanaccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/don_t_have_an_account"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/green" />
+
+                <!-- LOADING -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="14dp"
+                    android:visibility="gone"
+                 />
+
+        </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

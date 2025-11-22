@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Plant Image -->
+        <ImageView
+            android:id="@+id/plantImage"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:background="@color/tertiary"
+            android:clipToOutline="true"
+            android:contentDescription="Plant Image"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Common Name -->
+        <TextView
+            android:id="@+id/commonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Common Name"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Scientific Name -->
+        <TextView
+            android:id="@+id/scientificName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scientific Name"
+            android:textSize="16sp"
+            android:textColor="#666"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Information Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:elevation="2dp"
+            android:clipToOutline="true"
+            android:layout_marginBottom="20dp">
+
+            <!-- Grouped Info -->
+            <TextView
+                android:id="@+id/family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Family"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/familyCommonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Family Common Name"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/genus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Genus"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Author"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/bibliography"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bibliography"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/rank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rank"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Year"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+        <!-- Synonyms Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:elevation="2dp"
+            android:clipToOutline="true"
+            android:layout_marginBottom="20dp">
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/synonyms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Synonyms"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/slug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Slug"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/links"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Links"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

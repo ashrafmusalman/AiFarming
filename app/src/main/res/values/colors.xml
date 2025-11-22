@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- existing colors (cleaned) -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#808080</color>
+    <color name="green">#4CAF50</color>
+    <color name="deep_green">#388E3C</color>
+    <color name="light_green">#78E47E</color>
+    <color name="secondary_color">#FFEB3B</color>
+    <!-- you provided this value; kept as-is (ARGB) -->
+    <color name="background_color">#A1F6F6EE</color>
+    <color name="primary_text_color">#212121</color>
+    <color name="secondary_text_color">#757575</color>
+    <color name="lightgray">#F5F5F5</color>
+
+    <color name="tertiary">#E0FFFF</color>
+    <color name="red">#FFFF0000</color>
+
+    <!-- new names used by the redesigned layout/drawables -->
+    <!-- map primary brand to your existing green -->
+    <color name="brand_green">#4CAF50</color>
+    <!-- slightly darker green for pressed/focused states -->
+    <color name="brand_green_dark">#2E7D32</color>
+    <color name="brand_green_pressed">#256B2A</color>
+    <!-- translucent (alpha + brand green) for subtle borders -->
+    <color name="brand_green_translucent">#1A4CAF50</color>
+
+    <!-- button text / general text colors -->
+    <color name="button_text">#FFFFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_hint">#757575</color>
+
+    <!-- background used in redesigned layout -->
+    <color name="bg_light">#FAFBF9</color>
+</resources>
