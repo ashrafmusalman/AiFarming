@@ -11,14 +11,15 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.ashraf.farming.R
-import com.ashraf.farming.databinding.FragmentOnBaordingBinding
+
 import com.ashraf.farming.oboarding.adapter.OnBoardingAdapter
 import com.ashraf.farming.oboarding.onboardingscreen.FirstScreen
 import com.ashraf.farming.oboarding.onboardingscreen.FourthScreen
 import com.ashraf.farming.oboarding.onboardingscreen.SecondScreen
 import com.ashraf.farming.oboarding.onboardingscreen.ThirdScreen
 import com.ashraf.farming.oboarding.onboardingviewmodel.OnBoardingViewmodel
+import com.shahbaz.farming.R
+import com.shahbaz.farming.databinding.FragmentOnBaordingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -123,7 +124,7 @@ class OnBaordingFragment : Fragment() {
     }
 
 
-    fun navigatToAuthentication(){
+    private fun navigatToAuthentication(){
         // Navigate to the authentication graph and clear back stack
         val navOptions = NavOptions.Builder()
             .setPopUpTo(R.id.onBaordingFragment, true) // Pop up to the OnBaordingFragment

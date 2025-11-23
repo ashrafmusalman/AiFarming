@@ -4,7 +4,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ashraf.farming.DashboardActivity
-import com.ashraf.farming.R
+import com.shahbaz.farming.R
 
 fun Fragment.showBottomNavigationBar(){
     val bottomNav = (activity as DashboardActivity).findViewById<BottomNavigationView>(R.id.bottomNavigationView)
