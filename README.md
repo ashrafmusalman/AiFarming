@@ -1,1 +1,1 @@
-https://github.com/ashrafmusalman/AiFarming/blob/7f9f38e74dcc50fcb2526753738ee2c9c8c60d51/Screenshot_2025-11-22-15-44-30-30_1f3e8a05fe132d034145ab57b471f447.jpg
+<img src="https://github.com/user-attachments/assets/647604dc-44fb-4ad8-a57d-aee3c72434d9" alt="Screenshot 7" height="300">
